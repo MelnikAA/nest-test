@@ -49,6 +49,10 @@ export class Candidate extends Model<Candidate, CandidateCreationAttributes> {
     @Column({type: DataType.STRING})
     resume: string;
 
+    @ApiProperty({example: 'Опыт работы 0 лет. https://github.com/MelnikAA', description:'Пара слов о себе'})
+    @Column({type: DataType.STRING})
+    comment: string;
+
     @ApiProperty({example: 'backend', description:'Направление'})
     @Column({type: DataType.STRING, allowNull: false})
     direction: 'frontend' | 'backend';

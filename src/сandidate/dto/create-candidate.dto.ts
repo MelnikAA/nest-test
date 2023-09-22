@@ -12,6 +12,8 @@ export class CreateCandidateDto {
     readonly dateOfBirth: Date;
     @ApiProperty({example: 'г. Хабаровск', description:'Место рождение'})
     readonly placeOfBirth: string;
+    @ApiProperty({example: 'Опыт работы 0 лет. https://github.com/MelnikAA', description:'Пара слов о себе'})
+    readonly comment: string;
     @ApiProperty({example: 'backend', description:'Направление'})
     readonly direction: 'frontend' | 'backend';
     @ApiProperty({example: 'Next', description:'Любимый SSR-фреймворк'})

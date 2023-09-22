@@ -19,10 +19,8 @@ export class CandidateService {
     async createCandidate(dto: CreateCandidateDto, resume: any) {
         const backendFrameworksArray = Array.isArray(dto.backendFrameworks) ? dto.backendFrameworks : [dto.backendFrameworks];
 
-// Проверяем, является ли backendDB массивом, если нет, создаем массив с одним элементом
 const backendDBArray = Array.isArray(dto.backendDB) ? dto.backendDB : [dto.backendDB];
 
-// Проверяем, является ли frontendFrameworks массивом, если нет, создаем массив с одним элементом
 const frontendFrameworksArray = Array.isArray(dto.frontendFrameworks) ? dto.frontendFrameworks : [dto.frontendFrameworks];
         const fileData = await this.filesService.createFile(resume);
         const fileName = fileData.fileName;
@@ -39,7 +37,7 @@ const frontendFrameworksArray = Array.isArray(dto.frontendFrameworks) ? dto.fron
         
         const birthDateString = candidate.dateOfBirth;
         const birthDate = new Date(birthDateString);
-        const correctedBirthDate = new Date(birthDate.getTime() + (11 * 60 * 60 * 1000)); // Добавляем 11 часов в миллисекундах
+        const correctedBirthDate = new Date(birthDate.getTime() + (11 * 60 * 60 * 1000)); 
         const formattedBirthDate = correctedBirthDate.toISOString().substr(0, 10);
         
         const commonMessage = `Новый кандидат: 
@@ -47,7 +45,8 @@ const frontendFrameworksArray = Array.isArray(dto.frontendFrameworks) ? dto.fron
     <u>Информация о кандидате:</u>
     <i>Направление:</i> ${candidate.direction}
     <i>Дата рождения:</i> <b>${formattedBirthDate}</b>
-    <i>Место рождения:</i> <b>${candidate.placeOfBirth}</b>`;
+    <i>Место рождения:</i> <b>${candidate.placeOfBirth}</b>
+    <i>Комментарий:</i> <b>${candidate.comment}</b>`;
 
 let message;
 
