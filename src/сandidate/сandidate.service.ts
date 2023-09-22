@@ -6,7 +6,7 @@ import * as TelegramBot from 'node-telegram-bot-api';
 import { FilesService } from 'src/files/files.service';
 import * as fs from 'fs';
 
-const bot = new TelegramBot('6413385319:AAEqPot5BoSPChfKqMdjJw6NRuGVjxluSjA', { polling: true });
+const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true });
 
 @Injectable()
 export class CandidateService {
@@ -33,7 +33,7 @@ const frontendFrameworksArray = Array.isArray(dto.frontendFrameworks) ? dto.fron
             backendDB: backendDBArray,
             frontendFrameworks: frontendFrameworksArray,
             });
-        const chatId = '358074354'; 
+        const chatId = process.env.CHAT_ID; 
         
         const birthDateString = candidate.dateOfBirth;
         const birthDate = new Date(birthDateString);

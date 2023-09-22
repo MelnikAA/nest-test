@@ -9,6 +9,7 @@ interface CandidateCreationAttributes {
     dateOfBirth: Date;
     placeOfBirth: string;
     resume: string;
+    comment: string;
     direction: 'frontend' | 'backend';
     favoriteSSR: string;
     favoriteStateManager: string;
